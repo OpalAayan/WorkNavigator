@@ -1,0 +1,98 @@
+/* --- Base Container --- */
+.workspace-indicator-box {
+    margin: 4px 8px;
+    spacing: 6px;
+}
+
+/* --- Island Look (Background ON) --- */
+.workspace-indicator-box.island-style {
+    background-color: rgba(30, 30, 30, 0.95);
+    border-radius: 99px;
+    padding: 2px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- General Button Reset --- */
+.workspace-button {
+    width: 24px;
+    height: 24px;
+    color: #888888;
+    font-weight: 700;
+    background-color: transparent;
+    border-radius: 99px;
+    border: 0px solid transparent; 
+}
+
+.workspace-button:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.workspace-label {
+    text-align: center;
+}
+
+/* --- STYLE 1: CIRCLE --- */
+.workspace-indicator-box.style-circle .workspace-button.active,
+.workspace-indicator-box.island-style .workspace-button.active {
+    color: #000000;
+    background-color: #ffffff;
+    font-weight: 900;
+    border-radius: 99px;
+}
+
+/* --- STYLE 2: HOLLOW SQUARE (New Replacement) --- */
+.workspace-indicator-box.style-hollow-square .workspace-button {
+    border-radius: 4px;
+}
+
+.workspace-indicator-box.style-hollow-square .workspace-button.active {
+    color: #ffffff;
+    font-weight: 900;
+    background-color: transparent;
+    /* Clean white border */
+    border: 1px solid #ffffff;
+    border-radius: 6px; 
+}
+
+/* --- STYLE 3: SQUARE --- */
+.workspace-indicator-box.style-square .workspace-button {
+    border-radius: 4px;
+}
+
+.workspace-indicator-box.style-square .workspace-button.active {
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 4px; 
+    font-weight: 900;
+}
+
+/* --- STYLE 4: DOTS --- */
+.workspace-indicator-box.style-dots .workspace-button.active {
+    color: #ffffff;
+    font-weight: 900;
+    background-color: transparent;
+}
+
+.dot-indicator {
+    width: 4px;
+    height: 4px;
+    background-color: #ffffff; 
+    border-radius: 99px; 
+    margin-top: 0px; 
+    align-self: center; 
+}
+
+/* --- PLUS BUTTON --- */
+.workspace-button.add-button {
+    background-color: transparent !important;
+    border: none !important;
+    color: #666666;
+    width: 20px;
+}
+
+.workspace-button.add-button:hover {
+    color: #aaffaa;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 99px;
+}

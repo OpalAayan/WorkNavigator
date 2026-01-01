@@ -1,0 +1,8 @@
+{
+  "name": "WorkNavigator",
+  "description": "Professional workspace navigator with style options",
+  "uuid": "WorkNavigator@opalaayan-git",
+  "shell-version": [ "45", "46", "47", "48", "49", "49.2" ],
+  "url": "https://github.com/OpalAayan",
+  "settings-schema": "org.gnome.shell.extensions.worknavigator"
+}

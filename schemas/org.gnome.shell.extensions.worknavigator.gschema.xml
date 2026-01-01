@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gnome-shell-extensions">
+  <schema id="org.gnome.shell.extensions.worknavigator" path="/org/gnome/shell/extensions/worknavigator/">
+    
+    <key name="panel-position" type="s">
+      <default>'left'</default>
+      <summary>Position in the panel</summary>
+    </key>
+
+    <key name="show-background" type="b">
+      <default>true</default>
+      <summary>Show the island background</summary>
+    </key>
+
+    <key name="show-plus-button" type="b">
+      <default>true</default>
+      <summary>Show the add workspace button</summary>
+    </key>
+
+    <key name="indicator-style" type="s">
+      <default>'circle'</default>
+      <summary>Style of the active workspace indicator</summary>
+      <description>Options: circle, square, hollow-square, dots</description>
+    </key>
+
+  </schema>
+</schemalist>
