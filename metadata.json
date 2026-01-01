@@ -3,6 +3,6 @@
   "description": "Professional workspace navigator with style options",
   "uuid": "WorkNavigator@opalaayan-git",
   "shell-version": [ "45", "46", "47", "48", "49", "49.2" ],
-  "url": "https://github.com/OpalAayan",
+  "url": "https://github.com/OpalAayan/WorkNavigator",
   "settings-schema": "org.gnome.shell.extensions.worknavigator"
 }
