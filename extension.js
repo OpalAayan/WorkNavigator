@@ -11,23 +11,35 @@ class WorkspaceIndicator extends St.BoxLayout {
         
         this._settings = settings;
         this._wsManager = global.workspace_manager;
-        this._signals = [];
-        this._settingsSignals = [];
+
+        // --- FIX 2: Refactored signal connections using connectObject ---
+        // This removes the need for the arrays (_signals, _settingsSignals)
 
         // Watch Settings
-        this._settingsSignals.push(
-            this._settings.connect('changed::show-background', () => this._updateLook()),
-            this._settings.connect('changed::show-plus-button', () => this._update()),
-            this._settings.connect('changed::indicator-style', () => {
+        this._settings.connectObject(
+            'changed::show-background', () => this._updateLook(),
+            this
+        );
+        this._settings.connectObject(
+            'changed::show-plus-button', () => this._update(),
+            this
+        );
+        this._settings.connectObject(
+            'changed::indicator-style', () => {
                 this._updateLook();
                 this._update();
-            })
+            },
+            this
         );
 
         // Watch Workspaces
-        this._signals.push(
-            this._wsManager.connect('notify::n-workspaces', () => this._update()),
-            this._wsManager.connect('active-workspace-changed', () => this._update())
+        this._wsManager.connectObject(
+            'notify::n-workspaces', () => this._update(),
+            this
+        );
+        this._wsManager.connectObject(
+            'active-workspace-changed', () => this._update(),
+            this
         );
 
         this._updateLook();
@@ -123,19 +135,17 @@ class WorkspaceIndicator extends St.BoxLayout {
     }
 
     destroy() {
-        if (this._signals) {
-            this._signals.forEach(id => this._wsManager.disconnect(id));
-            this._signals = [];
-        }
-        if (this._settingsSignals) {
-            this._settingsSignals.forEach(id => this._settings.disconnect(id));
-            this._settingsSignals = [];
-        }
+        // --- FIX 2 (Cleanup): Clean up signals using disconnectObject(this) ---
+        // This is much cleaner than looping through arrays
+        this._wsManager.disconnectObject(this);
+        this._settings.disconnectObject(this);
+        
         super.destroy();
     }
 });
 
-export default class SimplyNavExtension extends Extension {
+// --- FIX 1: Renamed 'SimplyNavExtension' to 'WorkNavigatorExtension' ---
+export default class WorkNavigatorExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._indicator = new WorkspaceIndicator(this._settings);
@@ -181,3 +191,4 @@ export default class SimplyNavExtension extends Extension {
         this._settings = null;
     }
 }
+//Edited by @Wicked_Kakashi on github
